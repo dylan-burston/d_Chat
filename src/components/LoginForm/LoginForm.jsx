@@ -5,22 +5,17 @@ import axios from 'axios';
 const LoginForm = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [loggedInUser, setLoggedInUser] = useState({});
     const [errorMessage, setErrorMessage] = useState('');
     
     const handleChange = (evt) => {
         if (evt.target.name === "email") setEmail(evt.target.value)
         else if (evt.target.name === "password") setPassword(evt.target.value)
-        setLoggedInUser({
-            email,
-            password,
-        })
     }
 
     const handleSubmit = async (evt) => {
         evt.preventDefault();
         try { 
-            let token = await axios.post('/api/users/login', loggedInUser)
+            let token = await axios.post('/api/users/login', {email, password})
             localStorage.setItem('token', token.data);
             props.setUserState(JSON.parse(atob(token.data.split('.')[1])).user);
         } catch (err) {

@@ -4,6 +4,7 @@ const usersCtrl = require('../../controllers/api/users');
 
 
 
+router.post('/login', usersCtrl.login);
 router.post('/signup', usersCtrl.create);
 
 
