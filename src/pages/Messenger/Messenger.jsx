@@ -22,13 +22,15 @@ const Messenger = (props) => {
         setFriend(await event.target.value)
       }
 
+
+      const fetchUsers = async () => {
+        let usersData = await axios.get('/api/users');
+        let friendsData = await axios.get('/api/users/friends');
+        setUsers(usersData.data.filter(user => user._id !== props.user._id));
+        setFriends(friendsData.data);
+      }
+
       useEffect(() => {
-        async function fetchUsers() {
-          let usersData = await axios.get('/api/users');
-          let friendsData = await axios.get('/api/users/friends');
-          setUsers(usersData.data.filter(user => user._id !== props.user._id));
-          setFriends(friendsData.data);
-        }
         fetchUsers();
       }, [])
 
