@@ -7,24 +7,20 @@ class App extends React.Component {
   state = {
     user: null
   }
+
+  setUserState = (incomingUser) => {
+    this.setState({
+      user: incomingUser
+    })
+  }
+
+
   render() {
 
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+       {this.state.user ? <h1> Logged In </h1> : <AuthPage setUserState={this.setUserState}/>
+        }
       </div>
     );
   }
