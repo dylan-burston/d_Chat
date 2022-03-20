@@ -35,4 +35,8 @@ const LoginForm = (props) => {
     )
 }
 
+// localStorage.removeItem('token');
+// token = null;
+// above will log out when posed in dev console 
+
 export default LoginForm;

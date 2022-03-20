@@ -1,0 +1,8 @@
+.chatBox {
+    min-height: 350px;
+  }
+  
+  .sendBox {
+    display: flex;
+    align-items: center;
+  }
