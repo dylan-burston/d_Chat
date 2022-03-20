@@ -1,12 +1,36 @@
 import './Messenger.css';
+import {useEffect, useState} from "react";
+import Conversation from '../../components/Conversation/Conversation';
+import axios from 'axios';
 
 const Messenger = (props) => {
+    const [allUsers, setUsers] = useState([]);
+    const [allFriends, setFriends] = useState([]);
     const [receiver, setReceiver] = useState(null);
+    const [friend, setFriend] = useState('');
 
     const handleClick = (incomingFriendId) => {
         setReceiver(incomingFriendId)
       }
 
+      const handleSubmit = async (evt) => {
+        evt.preventDefault();
+        await axios.post(`/api/users/${props.user._id}/${friend}/new`)
+      }
+
+      const handleFriendRequestSelect = async (event) => {
+        setFriend(await event.target.value)
+      }
+
+      useEffect(() => {
+        async function fetchUsers() {
+          let usersData = await axios.get('/api/users');
+          let friendsData = await axios.get('/api/users/friends');
+          setUsers(usersData.data.filter(user => user._id !== props.user._id));
+          setFriends(friendsData.data);
+        }
+        fetchUsers();
+      }, [])
 
   return (
     <div className="messenger">
