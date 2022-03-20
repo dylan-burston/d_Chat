@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import AuthPage from './pages/AuthPage/AuthPage';
+
 
 class App extends React.Component {
 
