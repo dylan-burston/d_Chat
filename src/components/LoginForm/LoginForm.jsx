@@ -38,5 +38,7 @@ const LoginForm = (props) => {
 // localStorage.removeItem('token');
 // token = null;
 // above will log out when posed in dev console 
+// to debug the sign in/ out issue.. sign in and sign out with above code
+
 
 export default LoginForm;
