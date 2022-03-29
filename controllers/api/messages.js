@@ -1,10 +1,15 @@
+
 const User = require('../../models/user');
 const Message = require('../../models/message');
 const jwt = require('jsonwebtoken');
 
 async function grabConversation(req, res) {
     try {
-        let messages = await Message.find({senderId: req.params.userId, receiverId: req.params.friendId});
+        let messagesSent = await Message.find({senderId: req.params.userId, receiverId: req.params.friendId});
+        let messagesReceived = await Message.find({senderId: req.params.friendId, receiverId: req.params.userId})
+        messages = [messagesSent, messagesReceived].flat().sort(function(a, b) {return a.createdAt - b.createdAt})
+    
+        console.log(messages);
         res.status(200).json(messages);
     } catch (err) {
         res.status(400).json(err);

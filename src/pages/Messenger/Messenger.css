@@ -1,23 +1,43 @@
 .messengerContainer {
-    display: flex;
-    justify-content: space-around;
-    border: 1px solid black;
-    border-radius: 20px;
-    height: 500px;
-    max-width: 500px;
-    min-width: 200px;
-    margin: auto;
-  }
-  
-  .friendContainer {
-    margin: 20px;
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 5px;
-  }
-  
-  .friendContainer:hover {
-    background-color: black;
-    color: white;
-    cursor: pointer;
-  }
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  border-radius: 20px;
+  height: 500px;
+  max-width: 500px;
+  min-width: 200px;
+  margin: auto;
+}
+
+.friendContainer {
+  margin: 20px;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.friendContainer:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.chatContainer .friendRequestContainer {
+  position: absolute;
+  bottom: 20%;
+}
+
+.friendContainer div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.friendContainer div img {
+  width: 15px;
+}

@@ -1,0 +1,20 @@
+.message.you {
+    background-color: rgb(235, 235, 235);
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100px;
+    margin-bottom: 5px;
+    margin-left: 50px;
+}
+
+.message {
+    background-color: rgb(63, 123, 252);
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100px;
+    margin-bottom: 5px;
+}

@@ -1,3 +1,4 @@
+
 import './Conversation.css'
 import Message from '../Message/Message';
 import {useEffect, useState} from 'react';
@@ -16,12 +17,12 @@ const Conversation = (props) => {
 
     const getAllConvoMessages = async () => {
         let messages = await axios.get(`/api/messages/${props.userId}/${props.receiverId}`)
+        console.log(messages.data);
         setAllMessages(messages.data);
     }
 
     useEffect(()=> {
         if (props.receiverId || sentMessage) getAllConvoMessages();
-        console.log(allMessages)
     }, [props.receiverId, sentMessage])
 
     return (
@@ -29,7 +30,7 @@ const Conversation = (props) => {
             <div className="chatContainer">
                 <div className="chatBox">
                     {allMessages.map((message, id) => (
-                        <Message key={id} message={message.text} />
+                        <Message key={id} message={message.text} senderId={message.senderId} userId={props.userId}/>
                     ))}
                 </div>
                 <div className="sendBox">
