@@ -16,7 +16,6 @@ const Conversation = (props) => {
 
     const getAllConvoMessages = async () => {
         let messages = await axios.get(`/api/messages/${props.userId}/${props.receiverId}`)
-        console.log(messages.data);
         setAllMessages(messages.data);
     }
 
