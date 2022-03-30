@@ -1,4 +1,3 @@
-
 import './Conversation.css'
 import Message from '../Message/Message';
 import {useEffect, useState} from 'react';

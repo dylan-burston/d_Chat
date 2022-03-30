@@ -1,13 +1,10 @@
 const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const SALT = 6
-
 let currentUser;
 
 async function createUser(req, res) {
     try {
-        console.log(req.body.password)
         const hashedPassword = bcrypt.hashSync(req.body.password, 12)
         const user = await User.create({name: req.body.name, email: req.body.email, password: hashedPassword});
         currentUser = user;
@@ -30,6 +27,15 @@ async function login(req, res) {
     }
 }
 
+async function show(req, res) {
+    try {
+      let user = await User.findById(req.params.userId);
+      res.status(200).json(user);
+    } catch (err) {
+      res.status(400).json(err);
+    }
+}
+
 async function index(req, res) {
     try {
         let users = await User.find({});
@@ -39,12 +45,25 @@ async function index(req, res) {
     }
 }
 
+async function newFriend(req, res) {
+    try {
+        let user = await User.findById(req.params.userId)
+        if (!user.friends.includes(req.params.friendId)) await user.friends.push(req.params.friendId);
+        await user.save()
+        currentUser = user;
+        res.status(200).send('Done')
+    } catch (err) {
+        res.status(400).json(err);
+    }
+}
+
 async function getFriends(req, res) {
     try {
+        console.log("get friends triggered")
         let allUsers = await User.find({});
-        let notYou = await allUsers.filter(user => user.id !== currentUser.id);
+        let notYou = allUsers.filter(user => user.id !== currentUser.id);
         let friends = []
-        notYou.forEach((user) => user.friends.forEach( id => {
+        notYou.forEach(async (user) => user.friends.forEach( id => {
             if (id == currentUser.id && currentUser.friends.includes(user.id)) {
                 console.log("user is", user);
                 friends.push(user);
@@ -56,21 +75,37 @@ async function getFriends(req, res) {
     }
 }
 
-async function newFriend(req, res) {
+async function updateProfile(req, res) {
     try {
-        let user = await User.findById(req.params.userId)
-        if (!user.friends.includes(req.params.friendId)) user.friends.push(req.params.friendId);
-        user.save()
+        let user = await User.findById(req.params.userId);
+        user.profilePic = req.body.profilePic;
+        user.save();
+    } catch (err) {
+        res.status(400).json(err)
+    }
+}
+
+async function deleteUser(req, res) {
+    try {
+        await User.findByIdAndDelete(req.params.userId);
+        let users = await User.find({})
+        users.forEach( user => {
+            user.friends.filter(id => id !== req.params.userId)
+            user.save();
+        })
         res.status(200).send('Done')
     } catch (err) {
-        res.status(400).json(err);
+        res.status(400).json(err)
     }
 }
 
 module.exports = {
-    create: createUser,
     login,
+    create: createUser,
+    show,
     index,
+    newFriend,
     getFriends,
-    newFriend
-} 
+    updateProfile,
+    deleteUser,
+}
