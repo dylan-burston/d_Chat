@@ -48,7 +48,6 @@ const Messenger = (props) => {
     if (!allFriends.includes(newFriend)) setFriends([...allFriends, newFriend])
     await axios.post(`/api/users/${props.user._id}/${friend}/new`);
     await props.getFriends();
-    console.log(props.friends.length)
   }
 
   return (

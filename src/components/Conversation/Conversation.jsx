@@ -36,7 +36,6 @@ const Conversation = (props) => {
         socket.current = io()
 
         socket.current.on("get_message", data => {
-            console.log("data is", data)
             setIncomingMessage({
                 senderId: data.senderId,
                 receiverId: props.userId,

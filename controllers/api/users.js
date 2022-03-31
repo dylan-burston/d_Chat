@@ -65,7 +65,6 @@ async function getFriends(req, res) {
         let friends = []
         notYou.forEach(async (user) => user.friends.forEach( id => {
             if (id == currentUser.id && currentUser.friends.includes(user.id)) {
-                console.log("user is", user);
                 friends.push(user);
             }
         }))
