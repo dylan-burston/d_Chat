@@ -59,8 +59,8 @@ async function newFriend(req, res) {
 
 async function getFriends(req, res) {
     try {
-        console.log("get friends triggered")
         let allUsers = await User.find({});
+        let currentUser = await User.findById(req.params.userId);
         let notYou = allUsers.filter(user => user.id !== currentUser.id);
         let friends = []
         notYou.forEach(async (user) => user.friends.forEach( id => {

@@ -9,8 +9,12 @@ const AuthPage = (props) => {
         <div className="AuthPage">
             <div onClick={() => setIsLoginPage(!isLoginPage)}>
                 {!isLoginPage ? 'Already a member? Log in!' : 'Not a member yet? Sign Up!'}
-            </div> 
-            {!isLoginPage ? <SignUpForm {...props} /> : <LoginForm {...props} /> }
+            </div>
+            {!isLoginPage ?
+                <SignUpForm {...props} />
+            :
+                <LoginForm {...props} />
+            }
         </div>
     )
 }

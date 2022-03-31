@@ -5,11 +5,13 @@ import Messenger from './pages/Messenger/Messenger';
 import AuthPage from './pages/AuthPage/AuthPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import UserLogOut from './components/UserLogOut/UserLogOut';
+import axios from 'axios';
 
 class App extends React.Component {
 
   state = {
     user: null,
+    friends: [],
   }
 
   grabUserData = () => {
@@ -25,11 +27,27 @@ class App extends React.Component {
     }
   }
 
+  getFriends = async () => {
+    let friendsData = await axios.get(`/api/users/${this.state.user._id}/friends`);
+    this.setState({friends: friendsData.data});
+  }
+
+  grabUserFromDB = async () => {
+    let userData = await axios.get(`/api/users/${this.state.user._id}`)
+    this.setState({user: userData.data});
+  }
+
   handleLogOut = () => {
     let token = localStorage.getItem('token');
     token = null;
     localStorage.removeItem('token');
     this.setState({user: null})      
+  }
+
+  handleDeleteAccount = async () => {
+    await axios.delete(`/api/users/${this.state.user._id}`)
+    await axios.delete(`/api/messages/${this.state.user._id}`)
+    this.handleLogOut();
   }
 
   componentDidMount() {
@@ -56,10 +74,10 @@ class App extends React.Component {
           {this.state.user ?
             <>
               <Route path="/profile">
-                <ProfilePage user={this.state.user}/>
+                <ProfilePage user={this.state.user} grabUserFromDB={this.grabUserFromDB} handleDeleteAccount={this.handleDeleteAccount}/>
               </Route>
               <Route path="/messenger">
-                <Messenger user={this.state.user}/>
+                <Messenger user={this.state.user} friends={this.state.friends} grabUserFromDB={this.grabUserFromDB} getFriends={this.getFriends}/>
               </Route>
               <Redirect to="/profile" />
             </>

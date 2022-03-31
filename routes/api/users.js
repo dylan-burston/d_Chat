@@ -5,10 +5,10 @@ const usersCtrl = require('../../controllers/api/users');
 router.post('/login', usersCtrl.login);
 router.post('/signup', usersCtrl.create);
 router.get('/', usersCtrl.index);
-router.get('/friends', usersCtrl.getFriends);
+router.get('/:userId/friends', usersCtrl.getFriends)
 router.get('/:userId', usersCtrl.show);
-router.delete('/:userId', usersCtrl.deleteUser);
-router.post('/:userId/:friendId/new', usersCtrl.newFriend);
-router.put('/:userId/update', usersCtrl.updateProfile);
+router.delete('/:userId', usersCtrl.deleteUser)
+router.post('/:userId/:friendId/new', usersCtrl.newFriend)
+router.put('/:userId/update', usersCtrl.updateProfile)
 
 module.exports = router;

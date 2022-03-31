@@ -13,15 +13,15 @@ const Messenger = (props) => {
 
   const fetchUsers = async () => {
     let usersData = await axios.get('/api/users');
-    let friendsData = await axios.get('/api/users/friends');
-    setFriends(friendsData.data);
     setUsers(usersData.data.filter(user => user._id !== props.user._id && user.friends.includes(props.user._id) && !props.user.friends.includes(user._id)));
     setFriendRequests(usersData.data.filter(user => user._id !== props.user._id && !props.user.friends.includes(user._id) && !user.friends.includes(props.user._id)))
   }
 
   useEffect(() => {
     fetchUsers();
-  }, [])
+    props.getFriends();
+    setFriends(props.friends);
+  }, [props.friends.length])
 
   const handleClick = (incomingFriendId) => {
     setReceiver(incomingFriendId)
@@ -47,6 +47,8 @@ const Messenger = (props) => {
     setUsers(allUsers.filter(user => user._id !== friend))
     if (!allFriends.includes(newFriend)) setFriends([...allFriends, newFriend])
     await axios.post(`/api/users/${props.user._id}/${friend}/new`);
+    await props.getFriends();
+    console.log(props.friends.length)
   }
 
   return (

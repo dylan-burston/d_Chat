@@ -26,14 +26,13 @@ const LoginForm = (props) => {
     return (
         <div className="LoginForm">
             <form className="loginForm" onSubmit={handleSubmit}>
-                <input type="email" name="email" placeholder="Your Email" onChange={handleChange} required/>
-                <input type="password" name="password" placeholder="Your Password" onChange={handleChange} required/>
+                <input type="text" name="email" placeholder="Your Email" onChange={handleChange} required/>
+                <input type="text" name="password" placeholder="Your Password" onChange={handleChange} required/>
                 <button>Login</button>
             </form>
             <p className="errorMessage">{errorMessage}</p>
         </div>
     )
 }
-
 
 export default LoginForm;

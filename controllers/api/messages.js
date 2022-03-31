@@ -1,7 +1,4 @@
-
-const User = require('../../models/user');
 const Message = require('../../models/message');
-const jwt = require('jsonwebtoken');
 
 async function grabConversation(req, res) {
     try {
@@ -36,5 +33,5 @@ async function deleteMessages(req, res) {
 module.exports = {
     grabConversation,
     new: newMessage,
-    deleteMessages
+    deleteMessages,
 }
