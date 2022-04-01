@@ -10,6 +10,7 @@ const Conversation = (props) => {
     const [sentMessage, setSentMessage] = useState('');
     const [incomingMessage, setIncomingMessage] = useState(null);
     const socket = useRef();
+    const scrollRef = useRef();
     
     const handleSubmit = async (evt) => {
       setAllMessages([...allMessages, {message: sentMessage}])
@@ -53,12 +54,18 @@ const Conversation = (props) => {
         socket.current.emit("send_user", props.userId)
     }, [props.userId])
 
+    useEffect(()=>{
+        scrollRef.current?.scrollIntoView({behavior:"smooth"})
+    },[allMessages])
+
     return (
         <div className="Conversation">
             <div className="chatContainer">
                 <div className="chatBox">
                     {allMessages.map((message, id) => (
-                        <Message key={id} message={message.content} senderId={message.senderId} userId={props.userId}/>
+                        <div key={id} ref={scrollRef}>
+                            <Message message={message.content} senderId={message.senderId} userId={props.userId}/>
+                        </div>
                     ))}
                 </div>
                 <div className="sendBox">

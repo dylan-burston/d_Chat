@@ -1,8 +1,15 @@
-/*  
-  .loginForm {
-    min-height: 350px;
-    display: flex;
-    align-items: center;
-  }
- */
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: auto;
+}
 
+.loginForm > input {
+  margin: 10px;
+}
+
+.loginForm > button {
+  width: 80px;
+  margin: auto;
+}

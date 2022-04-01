@@ -1,19 +1,19 @@
 .messengerContainer {
   display: flex;
   justify-content: space-around;
-  border: 1px solid black;
   border-radius: 20px;
   height: 500px;
   max-width: 500px;
   min-width: 200px;
   margin: auto;
+  margin-top: 20px;
 }
 
 .friendContainer {
   margin: 20px;
   border: 1px solid black;
-  border-radius: 20px;
   padding: 5px;
+  border-radius: 25px;
 }
 
 .friendContainer:hover {
@@ -27,9 +27,34 @@
   flex-direction: column;
 }
 
+.allFriends {
+  overflow-y: scroll;
+  max-height: 200px;
+  margin-bottom: 50px;
+}
+
+.acceptRequestContainer {
+  overflow-y: scroll;
+  max-height: 200px;
+}
+
 .chatContainer .friendRequestContainer {
   position: absolute;
   bottom: 20%;
+}
+
+.friendContact {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 25px;
+  padding: 5px;
+  font-size: 10px;
+  margin: 10px;
+}
+
+.caption {
+  font-style: italic;
 }
 
 .friendContainer div {
@@ -40,4 +65,24 @@
 
 .friendContainer div img {
   width: 15px;
+}
+
+.friendDiv {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.friendDiv:hover {
+  cursor: pointer;
+  background-color: #1982FC;
+  color: white;
+  border-radius: 10px;
+}
+
+.active {
+  color: green;
+}
+
+.disabled {
+  display: none;
 }

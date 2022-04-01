@@ -31,7 +31,7 @@ const SignUpForm = (props) => {
     return(
         <div className="SignUpForm">
             <form className="signupForm" onSubmit={handleSubmit}>
-                <input type="text" name="name" placeholder="Your Name" onChange={handleChange} required/>
+                <input type="text" name="name" placeholder="Username (max 20 characters, no whitespace)" onChange={handleChange} required/>
                 <input type="text" name="email" placeholder="Your Email" onChange={handleChange} required/>
                 <input type="text" name="password" placeholder="Your Password (Minimum 3 Characters)" onChange={handleChange} required/>
                 <input type="text" name="confirm" placeholder="Confirm Password" onChange={handleChange} required/>

@@ -11,7 +11,9 @@ const userSchema = new Schema({
       required: true
     },
     profilePic: { type: String, default: "/images/profile-pic.png"},
-    friends: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],  
+    caption: {type: String, default: "New to DChat", maxLength: 50},
+    age: {type: String, default: "", maxLength: 2},
+    friends: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],   
   },{
     timestamps: true,
   }

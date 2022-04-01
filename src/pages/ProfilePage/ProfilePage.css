@@ -3,3 +3,23 @@
     width: 200px;
     border-radius: 10px;
 }
+
+.updateProfileForm {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 300px;
+}
+
+.updateProfileForm > input {
+    margin: 10px;
+}
+
+.updateProfileForm > button {
+    width: 150px;
+    margin: auto;
+}
+
+.deleteButton {
+    margin: 20px;
+}

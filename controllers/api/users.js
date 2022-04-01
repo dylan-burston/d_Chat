@@ -77,7 +77,12 @@ async function getFriends(req, res) {
 async function updateProfile(req, res) {
     try {
         let user = await User.findById(req.params.userId);
-        user.profilePic = req.body.profilePic;
+        console.log(req.body)
+        user.profilePic = req.body.pic;
+        user.age = req.body.age;
+        user.caption = req.body.caption;
+        console.log(user)
+        console.log("hello")
         user.save();
     } catch (err) {
         res.status(400).json(err)
