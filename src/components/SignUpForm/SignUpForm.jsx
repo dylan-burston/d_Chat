@@ -34,7 +34,7 @@ const SignUpForm = (props) => {
                 <input type="text" name="name" placeholder="Username (max 20 characters, no whitespace)" onChange={handleChange} required/>
                 <input type="text" name="email" placeholder="Your Email" onChange={handleChange} required/>
                 <input type="password" name="password" placeholder="Your Password (Minimum 3 Characters)" onChange={handleChange} required/>
-                <input type="text" name="confirm" placeholder="Confirm Password" onChange={handleChange} required/>
+                <input type="password" name="confirm" placeholder="Confirm Password" onChange={handleChange} required/>
                 <button disabled={disable}>Sign Up</button>
             </form>
             <p className="errorMessage">{errorMessage}</p>
