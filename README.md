@@ -41,7 +41,7 @@ You can update your profile live in the Profile section.
 <br><br>
 - View my ERD here:
 <br>
-<img width="190" height="140" src="public/images/ERD.jpg">
+<img width="190" height="140" src="public/images/erd.jpg">
 
 ## <span style="color:orange">Technologies Used</span>
 - Node.js
