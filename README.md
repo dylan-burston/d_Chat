@@ -43,6 +43,11 @@ You can update your profile live in the Profile section.
 <br>
 <img width="190" height="140" src="public/images/erd.jpg">
 
+## <span style="color:orange">WireFrame</span>
+- Below is the original design of my application. Beginning with the sign in page to how I wanted the chat to look. The final design is very similar to how I wanted it to look. 
+<br>
+<img width="190" height="140" src="public/images/wf.jpg">
+
 ## <span style="color:orange">Technologies Used</span>
 - Node.js
 - Express.js
