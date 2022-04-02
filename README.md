@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# dChat 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img width="150" height="150" src="public/images/logo.png">
+</p>
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+## <span style="color:orange">What is dChat?</span>
+dChat is a chat application that allows a user to build a list of contacts and chat in a live environment. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## <span style="color:orange">How does it work?</span>
+Access the application [here](https://dchatapplication.herokuapp.com/). You will be routed to the initial profile screen. If it is your first time using dChat then fill in all fields and click "Sign Up". If you are already a loyal member of dChat you can click "Already a member" and will be re-routed to the familiar login page. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Clicking "Chat" in the nav bar will bring you to your chat section that holds all your current friends, chat history, and friend requests. To accept a friend request click the name and once it turns green you can add them. The names will remain green so you can see which friends were just added to your list. 
 
-### `npm test`
+To speak with a contact simply click their name in the Friends list and their chat history will open on the right. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You can update your profile live in the Profile section. 
 
-### `npm run build`
+**View my Trello board [here](https://trello.com/b/1DVn7srQ/dchat)!**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## <span style="color:orange">Application Screenshots</span>
+- This is an image of the inital profile sign up
+<br><br>
+<img width="190" height="140" src="public/images/start.png">
+<br><br>
+- Screenshot of your initial profile. In order to update type into the sections at the botton and add any image address to update your profile link - it can even be a google image! 
+<br><br>
+<img width="190" height="" src="public/images/profile.png">
+<br><br>
+- An example conversation on the right. You can see there is a friend request from "dylangood" on the left. In order to add him just click the name and once it turns green they are able to be added. 
+<br><br>
+<img width="190" height="150" src="public/images/chat.png">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## <span style="color:orange">Code Sample</span>
+<br>
+- This is a code snippet of the backend controller functions that perform CRUD on the user.
+<br><br>
+<img width="" height="" src="public/images/controllers.png">
+<br><br>
+- View my ERD here:
+<br>
+<img width="190" height="140" src="public/images/ERD.jpg">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## <span style="color:orange">Technologies Used</span>
+- Node.js
+- Express.js
+- MongoDb
+- Mongoose
+- socket. io
+- Heroku 
+- HTML
+- CSS 
+- Javascript
+- GIT 
+- mongoDB Compass
+- ReactJS
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Use the app on Heroku! 
+Click <a href="https://dchatapplication.herokuapp.com/" target="_blank" rel="noopener noreferrer">here</a> to access the app. 
+<br><br>
+## About the Creator 
+This is the first project applying ReactJS to the MERN stack by **Dylan Burston.**
+- **[Linkedin](https://www.linkedin.com/in/dylan-burston-09727265/)**
